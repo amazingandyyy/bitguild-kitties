@@ -22,11 +22,13 @@
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
+    "cors": "^2.8.4",
     "dotenv": "^5.0.1",
     "level": "^3.0.0",
     "request": "^2.85.0",
     "socket.io": "^2.1.0",
     "subleveldown": "^2.1.0",
+    "to2": "^1.0.0",
     "web3": "^1.0.0-beta.26"
   }
 }

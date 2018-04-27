@@ -1,17 +1,18 @@
 import express from 'express';
 import http, {createServer} from 'http';
 import bodyParser from 'body-parser';
-import socket from 'socket.io';
-import level from 'level';
-let db = level('db/gifting.db', { valueEncoding: 'json' })
+import socketio from 'socket.io';
+import cors from 'cors';
 
 import api from './api';
+import socket from './socket';
 
 const app = express();
 const server = http.Server(app);
-export const io = socket(server);
+export const io = socketio(server);
 
 // App Setup
+app.use(cors());
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}));
 app.get('/', (req, res)=>res.send('works'));
@@ -22,22 +23,9 @@ app.use((err, req, res, next) => {
     res.status(500).send(err);
 })
 
-io.on('connection', function (socket) {
+io.on('connection', function (sk) {
     console.log('socket!');
-    socket.on('GIFTING', function (data) {
-        console.log(data);
-    });
-    socket.on('CONNECT', function (data) {
-        const { address } = data;
-        db.get(address.toString(), function(err, value) {
-          if(!value){
-            db.put(address.toString(), [])
-            socket.emit('GIFTING_LIST', {list: ''})
-          }else{
-            socket.emit('GIFTING_LIST', {list: value})
-          }
-        });
-    });
+    socket.register(sk);
 });
 
 // Server Setup
