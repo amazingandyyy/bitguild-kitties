@@ -7,7 +7,7 @@
     "start": "node server.js",
     "dev": "node server.js",
     "build": "next build",
-    "postinstall": "npm run start",
+    "postinstall": "npm run build && npm run start",
     "deploy": "git push heroku master"
   },
   "author": "Amazingandyyy <amazingandyyy@gmail.com> (Andy Chen)",
