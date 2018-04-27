@@ -2,7 +2,11 @@ import express from 'express';
 import http, {createServer} from 'http';
 import bodyParser from 'body-parser';
 import socket from 'socket.io';
+import level from 'level';
+let db = level('db/gifting.db', { valueEncoding: 'json' })
+
 import api from './api';
+
 const app = express();
 const server = http.Server(app);
 export const io = socket(server);
@@ -19,10 +23,20 @@ app.use((err, req, res, next) => {
 })
 
 io.on('connection', function (socket) {
-    console.log(socket);
-    socket.emit('news', { hello: 'world' });
-    socket.on('my other event', function (data) {
+    console.log('socket!');
+    socket.on('GIFTING', function (data) {
         console.log(data);
+    });
+    socket.on('CONNECT', function (data) {
+        const { address } = data;
+        db.get(address.toString(), function(err, value) {
+          if(!value){
+            db.put(address.toString(), [])
+            socket.emit('GIFTING_LIST', {list: ''})
+          }else{
+            socket.emit('GIFTING_LIST', {list: value})
+          }
+        });
     });
 });
 

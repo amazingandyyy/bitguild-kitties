@@ -1,7 +1,7 @@
 import cheerio from 'cheerio';
 import request from 'request';
-import web3 from '../../utils/web3';
-import kittycore from '../../utils/kittycore';
+import web3 from '../utils/web3';
+import kittycore from '../utils/kittycore';
 
 export default {
   getKitties: (address) => {
