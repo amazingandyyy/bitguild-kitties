@@ -4,12 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "eslint .",
     "start": "node server.js",
     "dev": "node server.js",
     "build": "next build",
-    "precommit": "npm run test",
-    "prepush": "npm run test",
     "postinstall": "npm run start",
     "deploy": "git push heroku master"
   },
