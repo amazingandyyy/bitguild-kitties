@@ -4,8 +4,8 @@ import level from 'level';
 import controller from './controller';
 import socket from './socket';
 
-import kittycore from '../utils/kittycore';
-import web3 from '../utils/web3';
+import kittycore from './utils/kittycore';
+import web3 from './utils/web3';
 
 let db = level('gifting.db', { valueEncoding: 'json' })
 
