@@ -1,0 +1,21 @@
+{
+  "name": "bitguild-kitties",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./server/build/index.js",
+  "scripts": {
+    "start": "NODE_EMV=production node server/build/index.js",
+    "postinstall": "npm i --prefix server",
+    "deploy": "npm build --prefex server && git subtree push --prefix server heroku master"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amazingandyyy/bitguild-kitties.git"
+  },
+  "author": "Amazingandyyy <amazingandyyy@gmail.com> (Andy Chen)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amazingandyyy/bitguild-kitties/issues"
+  },
+  "homepage": "https://github.com/amazingandyyy/bitguild-kitties#readme"
+}
