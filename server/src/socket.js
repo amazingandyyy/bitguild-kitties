@@ -7,5 +7,9 @@ export default {
 
 	emit(event, obj) {
 		this.socket.emit(event, obj);
+	},
+	
+	on(event, obj) {
+		this.socket.on(event, obj);
 	}
 }

@@ -16,7 +16,6 @@ app.use(cors());
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}));
 app.get('/', (req, res)=>res.send('works'));
-app.use('/api', api);
 
 app.use((err, req, res, next) => {
     console.log('errrrr', err)
@@ -24,10 +23,11 @@ app.use((err, req, res, next) => {
 })
 
 io.on('connection', function (sk) {
-    console.log('socket!');
+    console.log('socket connectted!');
     socket.register(sk);
 });
 
+app.use('/api', api);
 // Server Setup
 const port = process.env.PORT || 8000;
 server.listen(port, ()=>{
