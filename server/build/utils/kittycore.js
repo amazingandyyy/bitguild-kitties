@@ -14,7 +14,15 @@ var _kittycoreAbi2 = _interopRequireDefault(_kittycoreAbi);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var instance = new _web2.default.eth.Contract(_kittycoreAbi2.default, '0x06012c8cf97bead5deae237070f9587f8e7a266d');
+var contractAddress = '0x06012c8cf97bead5deae237070f9587f8e7a266d';
+
+// const instance = new web3.eth.Contract(
+//   abi,
+//   contractAddress
+// )
+
+var contract = _web2.default.eth.contract(_kittycoreAbi2.default);
+var instance = contract.at(contractAddress);
 
 exports.default = instance;
 //# sourceMappingURL=kittycore.js.map

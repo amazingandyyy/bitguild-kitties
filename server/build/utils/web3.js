@@ -15,7 +15,9 @@ var web3 = void 0;
 if (typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
   web3 = new _web2.default(window.web3.currentProvider);
 } else {
-  var provider = new _web2.default.providers.HttpProvider('http://alpha-test.token.store:8555/');
+  var provider = new _web2.default.providers.HttpProvider('http://alpha-test.token.store:8555/'
+  // 'https://mainnet.infura.io/PgVZEzt3DB0RVs5xyKKw'
+  );
   web3 = new _web2.default(provider);
 }
 
