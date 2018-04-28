@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node build/index.js",
+    "start": "NODE_EMV=production node build/index.js",
     "dev": "babel-watch src/index.js",
-    "build": "rm -rf ./build && NPM_CONFIG_PRODUCTION=false babel -d ./build ./src -s"
+    "build": "rm -rf ./build && NPM_CONFIG_PRODUCTION=false babel -d ./build ./src -s",
+    "deploy": "npm run build && now"
   },
   "author": "Amazingandyyy <amazingandyyy@gmail.com> (Andy Chen)",
   "license": "MIT",
@@ -21,17 +22,13 @@
     "babel-watch": "^2.0.7"
   },
   "dependencies": {
-    "cheerio": "^1.0.0-rc.2",
     "cors": "^2.8.4",
     "dotenv": "^5.0.1",
-    "ethereum-input-data-decoder": "0.0.3",
     "express": "^4.16.3",
-    "level": "^3.0.0",
     "mongoose": "^5.0.16",
+    "now-env": "^3.0.4",
     "request": "^2.85.0",
     "socket.io": "^2.1.0",
-    "subleveldown": "^2.1.0",
-    "to2": "^1.0.0",
     "web3": "^0.14.0"
   }
 }

@@ -43,6 +43,8 @@ var _listener2 = _interopRequireDefault(_listener);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+require('now-env');
+
 var app = (0, _express2.default)();
 var server = _http2.default.Server(app);
 
