@@ -26,25 +26,22 @@ router.get('/giftingList/:address', (req, res, next)=>{
     res.send(value);
     
     console.log('====>')
-    var subscription = web3.eth.subscribe('logs', {
-        address: '0x06012c8cf97BEaD5deAe237070F9587f8E7A266d',
-        topics: ['0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef']
-    }, function(error, result){
-        if (!error) console.log(result);
-    })
-    .on("data", function(log){
-        console.log(log);
-    })
-    .on("changed", function(log){
-    })
-    .on('error', console.error);
-
     
-    // unsubscribes the subscription
-    subscription.unsubscribe(function(error, success){
-        if(success)
-            console.log('Successfully unsubscribed!');
-    });
+    // getting nothing
+    // var subscription = web3.eth.subscribe('logs', {
+    //     address: '0x06012c8cf97BEaD5deAe237070F9587f8E7A266d',
+    //     topics: ['0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef']
+    // }, function(error, result){
+    //     if (!error) console.log(result);
+    // })
+    // .on("data", function(log){
+    //     console.log(log);
+    // })
+    // .on("changed", function(log){
+    // })
+    // .on('error', console.error);
+
+    // getting nothing
     // kittycore.events.Transfer()
     //   .on('data', function(event){
     //       console.log('data')
@@ -67,13 +64,8 @@ router.get('/giftingList/:address', (req, res, next)=>{
     // },(err,evts)=>{
     //   console.log(err,evts);
     // })
-    
 
-    // socket.on('LISTEN_TO_GIFTING_LIST', () => {
-    //   const list = JSON.parse(value);
-    //   const indexList = list.map(l=>{ if(l.status=='Pending'){ return l.kittenId } })
-    //   console.log(address,indexList);
-
+    // getting nothing
       // kittycore.events.Transfer({
       //   filter: {
       //     tokenId: indexList
@@ -86,15 +78,6 @@ router.get('/giftingList/:address', (req, res, next)=>{
       //       console.log('changed',event);
       //   })
       //   .on('error', console.error);
-
-    //   // kittycore.getPastEvents('Transfer', {
-    //   //   fromBlock: 0,
-    //   //   toBlock: 'latest'
-    //   // }, function(error, events){ console.log(events); })
-    //   // .then(function(events){
-    //   //     console.log(events)
-    //   // });
-    // });
   });
 });
 
