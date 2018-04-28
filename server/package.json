@@ -24,11 +24,14 @@
     "cheerio": "^1.0.0-rc.2",
     "cors": "^2.8.4",
     "dotenv": "^5.0.1",
+    "ethereum-input-data-decoder": "0.0.3",
+    "express": "^4.16.3",
     "level": "^3.0.0",
+    "mongoose": "^5.0.16",
     "request": "^2.85.0",
     "socket.io": "^2.1.0",
     "subleveldown": "^2.1.0",
     "to2": "^1.0.0",
-    "web3": "^1.0.0-beta.26"
+    "web3": "^0.14.0"
   }
 }

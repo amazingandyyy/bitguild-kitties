@@ -7,6 +7,7 @@ if(typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
 } else {
   const provider = new Web3.providers.HttpProvider(
     'http://alpha-test.token.store:8555/'
+    // 'https://mainnet.infura.io/PgVZEzt3DB0RVs5xyKKw'
   )
   web3 = new Web3(provider);
 }
