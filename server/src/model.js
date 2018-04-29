@@ -8,7 +8,7 @@ const Schema = new mongoose.Schema({
     blockNumber: Number,
     image: String,
     status: String, //['Pending', 'Successful', 'Fail']
-    transactionHash: String
+    txHash: String
 },{
     timestamps: true
 })

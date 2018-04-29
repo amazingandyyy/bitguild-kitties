@@ -41,11 +41,17 @@ server.listen(port, ()=>{
 // Socket Register
 io.on('connection', function (sk) {
     sk.on('LISTEN_TO_UPDATE_TRANSACTION', (addr) => {
-        console.log('>>> Socket connected', addr);
+        console.log(`\x1b[96m>>> Socket connection from ${addr.substring(0,7)}\x1b[0m`);
         controller.giftingSocket(sk, addr)
+    })
+    sk.on('GET_LATEST_TRANSACTION', (addr) => {
+        controller.getLatestGiftingBySocket(sk, addr)
     })
 });
 
 
 // Expose API Route
 app.use('/api', api);
+
+// start listening to ethereum...
+ETHlistener.start();

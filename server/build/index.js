@@ -1,10 +1,5 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.io = undefined;
-
 var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
@@ -41,12 +36,16 @@ var _listener = require('./listener');
 
 var _listener2 = _interopRequireDefault(_listener);
 
+var _controllor = require('./controllor');
+
+var _controllor2 = _interopRequireDefault(_controllor);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var app = (0, _express2.default)();
 var server = _http2.default.Server(app);
 
-var io = exports.io = (0, _socket2.default)(server);
+var io = (0, _socket2.default)(server);
 
 // DB Setup
 _mongoose2.default.connect(process.env.MONGODB_URI || 'mongodb://localhost/bitguild-kitties-db-alpha').catch(function (err) {
@@ -76,14 +75,18 @@ server.listen(port, function () {
 
 // Socket Register
 io.on('connection', function (sk) {
-    console.log('>>> Socket connected');
-    _socket4.default.register(sk);
-    _listener2.default.start(sk);
+    sk.on('LISTEN_TO_UPDATE_TRANSACTION', function (addr) {
+        console.log('\x1B[96m>>> Socket connection from ' + addr.substring(0, 7) + '\x1B[0m');
+        _controllor2.default.giftingSocket(sk, addr);
+    });
+    sk.on('GET_LATEST_TRANSACTION', function (addr) {
+        _controllor2.default.getLatestGiftingBySocket(sk, addr);
+    });
 });
 
 // Expose API Route
 app.use('/api', _api2.default);
 
-// Listing to CryptoKitties on Ethereum
+// start listening to ethereum...
 _listener2.default.start();
 //# sourceMappingURL=index.js.map

@@ -6,7 +6,7 @@ import listener from './listener';
 export default {
   newGiftingList: (req, res, next)=>{
     const data = req.body;
-    const {from, to, kittenId, image, blockNumber} = data;
+    const {from, to, kittenId, image, blockNumber, txHash} = data;
     Transactions.findOne({
       from, to, kittenId
     }).then(existing=>{
@@ -16,9 +16,13 @@ export default {
         return existing.save()
       }else{
         const newTransaction = new Transactions({
-          from, to, kittenId, image,
+          from, 
+          to, 
+          kittenId, 
+          image,
           blockNumber: blockNumber,
-          status: 'Pending'
+          status: 'Pending',
+          txHash
         })
         return newTransaction.save()
       }
@@ -63,6 +67,13 @@ export default {
       sk.emit('CURRENT_TRANSACTION', result)
     }).catch(console.error)
     listener.byAddrWithSocket(sk,address);
+  },
+  getLatestGiftingBySocket: (sk, address) =>{
+    Transactions.find({
+      from: address
+    }).then(result=>{
+      sk.emit('CURRENT_TRANSACTION', result)
+    }).catch(console.error)
   }
 }
 

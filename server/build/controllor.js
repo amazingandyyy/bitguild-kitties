@@ -16,6 +16,10 @@ var _kittycore = require('./utils/kittycore');
 
 var _kittycore2 = _interopRequireDefault(_kittycore);
 
+var _listener = require('./listener');
+
+var _listener2 = _interopRequireDefault(_listener);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
@@ -25,7 +29,8 @@ exports.default = {
         to = data.to,
         kittenId = data.kittenId,
         image = data.image,
-        blockNumber = data.blockNumber;
+        blockNumber = data.blockNumber,
+        txHash = data.txHash;
 
     _model2.default.findOne({
       from: from, to: to, kittenId: kittenId
@@ -36,9 +41,13 @@ exports.default = {
         return existing.save();
       } else {
         var newTransaction = new _model2.default({
-          from: from, to: to, kittenId: kittenId, image: image,
+          from: from,
+          to: to,
+          kittenId: kittenId,
+          image: image,
           blockNumber: blockNumber,
-          status: 'Pending'
+          status: 'Pending',
+          txHash: txHash
         });
         return newTransaction.save();
       }
@@ -55,6 +64,18 @@ exports.default = {
       res.send(result);
     }).catch(next);
   },
+  getKittyListByUserAddress: function getKittyListByUserAddress(req, res, next) {
+    var address = req.params.address;
+
+    _model2.default.find({
+      from: address
+    }).then(function (transactions) {
+      var result = transactions.map(function (r) {
+        return r.kittenId;
+      });
+      res.send(result);
+    }).catch(next);
+  },
   removeGifting: function removeGifting(req, res, next) {
     var _req$body = req.body,
         from = _req$body.from,
@@ -66,6 +87,21 @@ exports.default = {
     }).then(function (result) {
       res.send('deleted');
     }).catch(next);
+  },
+  giftingSocket: function giftingSocket(sk, address) {
+    _model2.default.find({
+      from: address
+    }).then(function (result) {
+      sk.emit('CURRENT_TRANSACTION', result);
+    }).catch(console.error);
+    _listener2.default.byAddrWithSocket(sk, address);
+  },
+  getLatestGiftingBySocket: function getLatestGiftingBySocket(sk, address) {
+    _model2.default.find({
+      from: address
+    }).then(function (result) {
+      sk.emit('CURRENT_TRANSACTION', result);
+    }).catch(console.error);
   }
 };
 //# sourceMappingURL=controllor.js.map

@@ -40,6 +40,12 @@ $ npm run dev
 Client App: https://amazingandyyy.com/bitguild-kitties/
 Node Server: https://kitties-dapp.herokuapp.com/
 
+## About listening
+  
+  - web3 watch
+  - contract events
+  - ehterscan API(https://etherscan.io/apis#transactions)
+
 ## Author
 
 [Amazingandyyy](https://github.com/amazingandyyy)

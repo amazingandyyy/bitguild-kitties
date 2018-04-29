@@ -17,5 +17,14 @@
   "bugs": {
     "url": "https://github.com/amazingandyyy/bitguild-kitties/issues"
   },
-  "homepage": "https://github.com/amazingandyyy/bitguild-kitties#readme"
+  "homepage": "https://github.com/amazingandyyy/bitguild-kitties#readme",
+  "devDependencies": {
+    "eslint": "^4.7.2",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-react": "^7.4.0",
+    "eslint-plugin-standard": "^3.0.1"
+  }
 }

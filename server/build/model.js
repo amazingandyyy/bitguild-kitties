@@ -17,7 +17,8 @@ var Schema = new _mongoose2.default.Schema({
     kittenId: Number,
     blockNumber: Number,
     image: String,
-    status: String //['Pending', 'Successful', 'Fail']
+    status: String, //['Pending', 'Successful', 'Fail']
+    txHash: String
 }, {
     timestamps: true
 });
