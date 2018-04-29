@@ -1,6 +1,7 @@
 import Transactions from './model';
 import socket from './socket';
 import kittycore from './utils/kittycore';
+import listener from './listener';
 
 export default {
   newGiftingList: (req, res, next)=>{
@@ -36,6 +37,16 @@ export default {
     })
     .catch(next);
   },
+  getKittyListByUserAddress: (req, res, next)=>{
+    const { address } = req.params;
+    Transactions.find({
+      from: address
+    }).then(transactions=>{
+      const result = transactions.map(r=>r.kittenId)
+      res.send(result)
+    })
+    .catch(next);
+  },
   removeGifting: (req, res, next)=>{
     const { from, to, kittenId} = req.body;
     Transactions.findOneAndRemove({
@@ -44,6 +55,14 @@ export default {
       res.send('deleted')
     })
     .catch(next);
+  },
+  giftingSocket: (sk, address) =>{
+    Transactions.find({
+      from: address
+    }).then(result=>{
+      sk.emit('CURRENT_TRANSACTION', result)
+    }).catch(console.error)
+    listener.byAddrWithSocket(sk,address);
   }
 }
 

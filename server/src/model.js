@@ -7,7 +7,8 @@ const Schema = new mongoose.Schema({
     kittenId: Number,
     blockNumber: Number,
     image: String,
-    status: String //['Pending', 'Successful', 'Fail']
+    status: String, //['Pending', 'Successful', 'Fail']
+    transactionHash: String
 },{
     timestamps: true
 })

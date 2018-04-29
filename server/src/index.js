@@ -8,11 +8,12 @@ import mongoose from 'mongoose';
 import api from './api';
 import socket from './socket';
 import ETHlistener from './listener';
+import controller from './controllor';
 
 const app = express();
 const server = http.Server(app);
 
-export const io = socketio(server);
+const io = socketio(server);
 
 // DB Setup
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/bitguild-kitties-db-alpha')
@@ -39,13 +40,12 @@ server.listen(port, ()=>{
 
 // Socket Register
 io.on('connection', function (sk) {
-    console.log('>>> Socket connected');
-    socket.register(sk);
-    ETHlistener.start(sk);
+    sk.on('LISTEN_TO_UPDATE_TRANSACTION', (addr) => {
+        console.log('>>> Socket connected', addr);
+        controller.giftingSocket(sk, addr)
+    })
 });
+
 
 // Expose API Route
 app.use('/api', api);
-
-// Listing to CryptoKitties on Ethereum
-ETHlistener.start();

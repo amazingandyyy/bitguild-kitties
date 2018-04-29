@@ -38,7 +38,7 @@ $ npm run dev
 ## Deployment
 
 Client App: https://amazingandyyy.com/bitguild-kitties/
-Node Server: https://bitguild-kitties-erzcbpsgcz.now.sh
+Node Server: https://kitties-dapp.herokuapp.com/
 
 ## Author
 
