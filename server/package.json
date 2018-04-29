@@ -7,7 +7,6 @@
     "start": "NODE_EMV=production node build/index.js",
     "dev": "babel-watch src/index.js",
     "build": "rm -rf ./build && NPM_CONFIG_PRODUCTION=false babel -d ./build ./src -s",
-    "deploy": "npm run build && now",
     "postinstall": "npm run build"
   },
   "author": "Amazingandyyy <amazingandyyy@gmail.com> (Andy Chen)",

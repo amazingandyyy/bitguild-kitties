@@ -16,11 +16,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var contractAddress = '0x06012c8cf97bead5deae237070f9587f8e7a266d';
 
-// const instance = new web3.eth.Contract(
-//   abi,
-//   contractAddress
-// )
-
 var contract = _web2.default.eth.contract(_kittycoreAbi2.default);
 var instance = contract.at(contractAddress);
 

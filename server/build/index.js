@@ -28,10 +28,6 @@ var _api = require('./api');
 
 var _api2 = _interopRequireDefault(_api);
 
-var _socket3 = require('./socket');
-
-var _socket4 = _interopRequireDefault(_socket3);
-
 var _listener = require('./listener');
 
 var _listener2 = _interopRequireDefault(_listener);

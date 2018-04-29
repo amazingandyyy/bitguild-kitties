@@ -8,12 +8,6 @@ var _model = require('./model');
 
 var _model2 = _interopRequireDefault(_model);
 
-var _repl = require('repl');
-
-var _socket = require('./socket');
-
-var _socket2 = _interopRequireDefault(_socket);
-
 var _web = require('./utils/web3');
 
 var _web2 = _interopRequireDefault(_web);
