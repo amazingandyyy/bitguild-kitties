@@ -1,6 +1,4 @@
 import Transactions from './model';
-import socket from './socket';
-import kittycore from './utils/kittycore';
 import listener from './listener';
 
 export default {
@@ -52,7 +50,7 @@ export default {
     .catch(next);
   },
   removeGifting: (req, res, next)=>{
-    const { from, to, kittenId} = req.body;
+    const { from, to, kittenId } = req.body;
     Transactions.findOneAndRemove({
       from, to, kittenId
     }).then(result=>{

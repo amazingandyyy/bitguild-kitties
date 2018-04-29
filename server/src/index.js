@@ -1,12 +1,11 @@
 import express from 'express';
-import http, {createServer} from 'http';
+import http from 'http';
 import bodyParser from 'body-parser';
 import socketio from 'socket.io';
 import cors from 'cors';
 import mongoose from 'mongoose';
 
 import api from './api';
-import socket from './socket';
 import ETHlistener from './listener';
 import controller from './controllor';
 

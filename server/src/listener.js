@@ -1,6 +1,4 @@
 import Transactions from './model';
-import { start } from 'repl';
-import socket from './socket';
 import web3 from './utils/web3';
 
 const filterwatch = web3.eth.filter({

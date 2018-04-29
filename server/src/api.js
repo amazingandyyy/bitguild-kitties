@@ -1,6 +1,6 @@
-const router = require('express').Router();
-
 import Controller from './controllor';
+
+const router = require('express').Router();
 
 router.post('/giftingList', Controller.newGiftingList);
 router.post('/removeGifting', Controller.removeGifting);
