@@ -1,5 +1,6 @@
 import Transactions from './model';
 import web3 from './web3';
+import { socketList } from './socket';
 
 const filterwatch = web3.eth.filter({
   address: '0x06012c8cf97BEaD5deAe237070F9587f8E7A266d',
@@ -17,8 +18,6 @@ function decodeData(log){
     transactionHash: log.transactionHash.toString()
   }
 }
-
-const socketList = {};
 
 export default {
   registerSocket: (sk, addr) =>{
