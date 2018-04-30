@@ -2,11 +2,11 @@
   "name": "bitguild-kitties",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "dist/app.js",
   "scripts": {
-    "start": "NODE_EMV=production node build/index.js",
-    "dev": "babel-watch src/index.js",
-    "build": "rm -rf ./build && NPM_CONFIG_PRODUCTION=false babel -d ./build ./src -s",
+    "start": "NODE_EMV=production node dist/app.js",
+    "dev": "babel-watch src/app.js",
+    "build": "rm -rf ./dist && NPM_CONFIG_PRODUCTION=false babel -d ./dist ./src -s",
     "postinstall": "npm run build"
   },
   "author": "Amazingandyyy <amazingandyyy@gmail.com> (Andy Chen)",

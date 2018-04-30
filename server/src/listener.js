@@ -1,5 +1,5 @@
 import Transactions from './model';
-import web3 from './utils/web3';
+import web3 from './web3';
 
 const filterwatch = web3.eth.filter({
   address: '0x06012c8cf97BEaD5deAe237070F9587f8E7A266d',

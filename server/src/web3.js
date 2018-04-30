@@ -1,5 +1,5 @@
 import Web3 from 'web3';
-import { web3HttpProvider } from '../config';
+import { web3HttpProvider } from './config';
 
 let web3;
 
