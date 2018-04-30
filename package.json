@@ -1,5 +1,5 @@
 {
-  "name": "bitguild-kitties",
+  "name": "gifting-kitties-dapp",
   "version": "0.0.1",
   "description": "",
   "main": "./server/build/index.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/amazingandyyy/bitguild-kitties.git"
+    "url": "git+https://github.com/amazingandyyy/gifting-kitties-dapp.git"
   },
   "author": "Amazingandyyy <amazingandyyy@gmail.com> (Andy Chen)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/amazingandyyy/bitguild-kitties/issues"
+    "url": "https://github.com/amazingandyyy/gifting-kitties-dapp/issues"
   },
-  "homepage": "https://github.com/amazingandyyy/bitguild-kitties#readme",
+  "homepage": "https://github.com/amazingandyyy/gifting-kitties-dapp#readme",
   "devDependencies": {
     "eslint": "^4.7.2",
     "eslint-config-standard": "^10.2.1",

@@ -8,7 +8,7 @@ module.exports = merge({
         new webpack.DefinePlugin({
             'process.env': {
                 'SERVERURI': JSON.stringify('https://kitties-dapp.herokuapp.com')
-                // 'SERVERURI': JSON.stringify('https://bitguild-kitties-mtrwqdyvui.now.sh')
+                // 'SERVERURI': JSON.stringify('https://gifting-kitties-dapp-mtrwqdyvui.now.sh')
             }
         })
     ]

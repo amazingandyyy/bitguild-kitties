@@ -1,5 +1,5 @@
 <h1 align="center">
-  Bitguild-kitties
+  gifting-kitties-dapp
 </h1>
 <p align="center">
 A dashboard that you can gift your cryptokitties to your love.
@@ -8,7 +8,7 @@ A dashboard that you can gift your cryptokitties to your love.
 ## Installation
 
 ```command
-$ git clone https://github.com/amazingandyyy/bitguild-kitties.git
+$ git clone https://github.com/amazingandyyy/gifting-kitties-dapp.git
 
 <!-- one session -->
 $ cd server && npm i
@@ -37,7 +37,7 @@ $ npm run dev
 
 ## Deployment
 
-Client App: https://amazingandyyy.com/bitguild-kitties/
+Client App: https://amazingandyyy.com/gifting-kitties-dapp/
 Node Server: https://kitties-dapp.herokuapp.com/
 
 ## About listening
