@@ -6,3 +6,5 @@ node_modules
 now-secrets.json
 build
 server/src/index.js
+.*
+!.*/

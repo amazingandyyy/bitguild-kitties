@@ -18,7 +18,7 @@ export default {
           to, 
           kittenId, 
           image,
-          blockNumber: blockNumber,
+          blockNumber,
           status: 'Pending',
           txHash
         })
@@ -61,10 +61,12 @@ export default {
   giftingSocket: (sk, address) =>{
     Transactions.find({
       from: address
+    }).sort({
+      date:1
     }).then(result=>{
       sk.emit('CURRENT_TRANSACTION', result)
     }).catch(console.error)
-    listener.byAddrWithSocket(sk,address);
+    listener.registerSocket(sk,address);
   },
   getLatestGiftingBySocket: (sk, address) =>{
     Transactions.find({

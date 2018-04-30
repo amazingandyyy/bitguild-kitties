@@ -83,10 +83,12 @@ exports.default = {
   giftingSocket: function giftingSocket(sk, address) {
     _model2.default.find({
       from: address
+    }).sort({
+      date: 1
     }).then(function (result) {
       sk.emit('CURRENT_TRANSACTION', result);
     }).catch(console.error);
-    _listener2.default.byAddrWithSocket(sk, address);
+    _listener2.default.registerSocket(sk, address);
   },
   getLatestGiftingBySocket: function getLatestGiftingBySocket(sk, address) {
     _model2.default.find({

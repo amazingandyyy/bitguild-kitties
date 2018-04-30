@@ -48,7 +48,6 @@ io.on('connection', function (sk) {
     })
 });
 
-
 // Expose API Route
 app.use('/api', api);
 
