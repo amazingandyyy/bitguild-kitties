@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -61,6 +62,9 @@ module.exports = {
                 'SERVERURI': JSON.stringify('http://localhost:8000')
             }
         }),
+        new CopyWebpackPlugin([
+            {from:'src/images',to:path.resolve(__dirname, '../docs/images')}
+        ]), 
     ],
     devtool: 'source-map',
     devServer: {
