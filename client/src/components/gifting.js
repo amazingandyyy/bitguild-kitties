@@ -10,7 +10,7 @@ class Gifting extends React.Component {
   constructor() {
     super()
     this.state={
-      list: [],
+      list: null,
       currentBlockNumber: 0
     }
   }
