@@ -8,7 +8,7 @@ export function SquareLoader(props) {
 export function DiamondLoader(props) {
   return <div className='diamond-loader'>
     {/* copyright may be a issue */}
-    <img src='/images/loading.gif'/>
+    <img src='https://github.com/amazingandyyy/bitguild-kitties/blob/master/client/src/images/loading.gif?raw=true'/>
   </div>;
 }
 

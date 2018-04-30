@@ -1,3 +1,7 @@
+
+<div align="center">
+  <img src='https://github.com/amazingandyyy/bitguild-kitties/blob/master/client/src/images/loading.gif?raw=true'/>
+</div>
 <h1 align="center">
   gifting-kitties-dapp
 </h1>
