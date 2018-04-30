@@ -1,6 +1,6 @@
 
 <div align="center">
-  <img src='https://github.com/amazingandyyy/bitguild-kitties/blob/master/client/src/images/loading.gif?raw=true'/>
+  <img src='https://github.com/amazingandyyy/bitguild-kitties/blob/master/client/src/images/loading.gif?raw=true' width='100px'/>
 </div>
 <h1 align="center">
   gifting-kitties-dapp
@@ -56,7 +56,7 @@ $ npm run dev
 
 ## Resources
 
-- Crypto-kitties token contract address: 0x06012c8cf97bead5deae237070f9587f8e7a266d
+- KittyCore smart contract address: `0x06012c8cf97bead5deae237070f9587f8e7a266d`
 
 
 ## Standard
