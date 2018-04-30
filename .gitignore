@@ -1,10 +1,9 @@
-node_modules
+client/node_modules
+node_modules/
 .env
 .DS_Store
-.next
 
-now-secrets.json
 build
-server/src/index.js
 .*
 !.*/
+.vscode
