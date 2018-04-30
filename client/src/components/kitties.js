@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Input, Card } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { SquareLoader } from './loader';
+import { DiamondLoader } from './loader';
 
 import { 
   getCatList,
@@ -99,8 +99,8 @@ class Kitties extends React.Component {
   renderKitties(){
     const {giftingKittyList, kitties} = this.props;
     if(!kitties){
-      return <div style={{'margin': '30px auto'}}>
-        <SquareLoader/>
+      return <div style={{'marginTop': '50px'}}>
+        <DiamondLoader/>
       </div>
     }
     if(kitties.length==0){
@@ -144,6 +144,7 @@ class Kitties extends React.Component {
       </Form.Field>
     </Form>
       {this.renderKitties()}
+      
     </div>
   }
 }

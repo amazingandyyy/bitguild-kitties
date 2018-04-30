@@ -3,7 +3,7 @@ import Header from './header';
 import { Card } from 'semantic-ui-react';
 import Socket from '../utils/socket';
 import web3 from '../utils/web3';
-import { CircleLoader, SquareLoader } from './loader';
+import { CircleLoader, DiamondLoader } from './loader';
 import { etherBlockNumToFail } from '../config';
 
 class Gifting extends React.Component {
@@ -53,9 +53,9 @@ class Gifting extends React.Component {
   renderList(){
     let {list} = this.state;
     if(!list){
-      return <div style={{'margin': '30px auto'}}>
-        <SquareLoader/>
-      </div>
+      return <div style={{'marginTop': '50px'}}>
+      <DiamondLoader/>
+    </div>
     }
     if(list.length==0){
       return <div style={{'textAlign': 'center', 'marginTop': '50px'}}>

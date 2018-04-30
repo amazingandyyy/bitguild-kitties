@@ -5,6 +5,11 @@ export function SquareLoader(props) {
       <div className='square-spinner' style={{...props.loaderstyle}}></div>
     </div>;
 }
+export function DiamondLoader(props) {
+  return <div className='diamond-loader'>
+    <img src='../images/loading.gif'/>
+  </div>;
+}
 
 export function CircleLoader(props) {
   return <div className='loader-component' {...props}>

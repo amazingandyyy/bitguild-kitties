@@ -14,6 +14,13 @@ const Header = (props) => (
 			Gifting History
 		</Menu.Item>
 	</Link>
+	<Menu.Menu position='right'>
+		<a href='https://github.com/amazingandyyy/bitguild-kitties' target='_blank' rel='noopener noreferrer'>
+      <Menu.Item>
+				Github
+      </Menu.Item>
+		</a>
+    </Menu.Menu>
 </Menu>);
 
 export default Header;
