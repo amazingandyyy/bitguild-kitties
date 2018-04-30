@@ -8,6 +8,7 @@ import mongoose from 'mongoose';
 import api from './api';
 import ETHlistener from './listener';
 import controller from './controllor';
+import { mongodbUri } from './config';
 
 const app = express();
 const server = http.Server(app);
@@ -15,7 +16,7 @@ const server = http.Server(app);
 const io = socketio(server);
 
 // DB Setup
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/bitguild-kitties-db-alpha')
+mongoose.connect(mongodbUri)
 .catch(err=>console.error(err));
 
 mongoose.Promise = global.Promise;

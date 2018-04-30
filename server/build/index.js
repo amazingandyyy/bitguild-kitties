@@ -36,6 +36,8 @@ var _controllor = require('./controllor');
 
 var _controllor2 = _interopRequireDefault(_controllor);
 
+var _config = require('./config');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var app = (0, _express2.default)();
@@ -44,7 +46,7 @@ var server = _http2.default.Server(app);
 var io = (0, _socket2.default)(server);
 
 // DB Setup
-_mongoose2.default.connect(process.env.MONGODB_URI || 'mongodb://localhost/bitguild-kitties-db-alpha').catch(function (err) {
+_mongoose2.default.connect(_config.mongodbUri).catch(function (err) {
     return console.error(err);
 });
 
