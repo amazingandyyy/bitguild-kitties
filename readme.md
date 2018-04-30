@@ -37,8 +37,8 @@ $ npm run dev
 
 ## Deployment
 
-Client App: https://amazingandyyy.com/gifting-kitties-dapp/
-Node Server: https://kitties-dapp.herokuapp.com/
+- Client App: https://amazingandyyy.com/gifting-kitties-dapp/
+- Node Server: https://kitties-dapp.herokuapp.com/
 
 ## About listening
   
