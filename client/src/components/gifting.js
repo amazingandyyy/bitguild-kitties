@@ -3,7 +3,7 @@ import Header from './header';
 import { Card } from 'semantic-ui-react';
 import Socket from '../utils/socket';
 import web3 from '../utils/web3';
-import {CircleLoader} from './loader';
+import { CircleLoader, SquareLoader } from './loader';
 import { etherBlockNumToFail } from '../config';
 
 class Gifting extends React.Component {
@@ -52,19 +52,23 @@ class Gifting extends React.Component {
   }
   renderList(){
     let {list} = this.state;
-    if(list&&list.length>0){
-      return list.map(t=><Card className='item' fluid style={{'padding': '10px', 'textAlign': 'center'}} key={t.kittenId}>
-          <img src={t.image} width={150} style={{'margin':'auto'}}/>
-          <p>
-            You <b><a href={`https://etherscan.io/tx/${t.txHash}`} target='_blank'>gifted</a></b> <b><a href={`https://www.cryptokitties.co/kitty/${t.kittenId}`} target='_blank'>{t.kittenId}</a></b> to <b><a href={`https://www.cryptokitties.co/profile/${t.to}`} target='_blank'>{t.to}</a></b>
-          </p>
-          {this.renderStatue(t)}
-        </Card>)
-    }else{
+    if(!list){
+      return <div style={{'margin': '30px auto'}}>
+        <SquareLoader/>
+      </div>
+    }
+    if(list.length==0){
       return <div style={{'textAlign': 'center', 'marginTop': '50px'}}>
         <div>No Transactions</div>
       </div>
     }
+    return list.map(t=><Card className='item' fluid style={{'padding': '10px', 'textAlign': 'center'}} key={t.kittenId}>
+        <img src={t.image} width={150} style={{'margin':'auto'}}/>
+        <p>
+          You <b><a href={`https://etherscan.io/tx/${t.txHash}`} target='_blank'>gifted</a></b> <b><a href={`https://www.cryptokitties.co/kitty/${t.kittenId}`} target='_blank'>{t.kittenId}</a></b> to <b><a href={`https://www.cryptokitties.co/profile/${t.to}`} target='_blank'>{t.to}</a></b>
+        </p>
+        {this.renderStatue(t)}
+      </Card>)
   }
   render() {
     return <div className='gifting-component'>
