@@ -62,7 +62,7 @@ class Gifting extends React.Component {
         <div>No Transactions</div>
       </div>
     }
-    return list.map(t=><Card className='item' fluid style={{'padding': '10px', 'textAlign': 'center'}} key={t.kittenId}>
+    return list.map(t=><Card fluid style={{'padding': '10px', 'textAlign': 'center'}} key={t.kittenId}>
         <img src={t.image} width={150} style={{'margin':'auto'}}/>
         <p>
           You <b><a href={`https://etherscan.io/tx/${t.txHash}`} target='_blank'>gifted</a></b> <b><a href={`https://www.cryptokitties.co/kitty/${t.kittenId}`} target='_blank'>{t.kittenId}</a></b> to <b><a href={`https://www.cryptokitties.co/profile/${t.to}`} target='_blank'>{t.to}</a></b>
@@ -71,9 +71,9 @@ class Gifting extends React.Component {
       </Card>)
   }
   render() {
-    return <div className='gifting-component'>
+    return <div>
       <Header/>
-      <div className='gifting-list'> 
+      <div> 
         {this.renderList()}
       </div>
     </div>

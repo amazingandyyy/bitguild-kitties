@@ -14,11 +14,7 @@ export default {
         return existing.save()
       }else{
         const newTransaction = new Transactions({
-          from, 
-          to, 
-          kittenId, 
-          image,
-          blockNumber,
+          from, to, kittenId, image, blockNumber,
           status: 'Pending',
           txHash
         })

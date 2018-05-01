@@ -29,7 +29,7 @@ class Kitties extends React.Component {
   async componentDidMount(){
     const accounts = await web3.eth.getAccounts();
     if(!accounts || accounts.length < 1){
-      window.alert('Oops! Unlock your metamask!')
+      window.alert('Oops! Unlock your metamask and refresh the page!')
     }
     this.setState({
       address: accounts[0]
@@ -49,7 +49,7 @@ class Kitties extends React.Component {
     const accounts = await web3.eth.getAccounts();
     if(!toAddress){
       // toAddress Cannot be empty
-      window.alert('Who do you want to send to?') 
+      window.alert('Who do you want to send to?')
       return;
     }
     if(toAddress == accounts[0]){
