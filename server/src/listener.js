@@ -30,23 +30,27 @@ export default {
       if(from!=='0x0000000000000000000000000000000000000000'){
         Transactions.findOne({ txHash: transactionHash })
         .then(kitten=>{
-          if(!kitten) return console.log(`\x1b[90m>>> Skipped [Transaction] event: ${transactionHash} \x1b[0m`);
-          if(kitten.status=='Pending'){
-            return Transactions.findOneAndUpdate({
-              txHash: transactionHash
-            },{
-              $set:{
-                status: 'Successful',
+          if(!kitten) {
+            console.log(`\x1b[90m>>> Skipped [Transaction] event: ${transactionHash} \x1b[0m`);
+          }else{
+            if(kitten.status=='Pending'){
+              return Transactions.findOneAndUpdate({
                 txHash: transactionHash
-              }
-            },{
-              new: true
-            }).then(updated=>{
-              if(Object.keys(socketList).indexOf(from.toUpperCase())>-1){
-                socketList[from.toUpperCase()].emit('UPDATE_RELAVANT_TRANSACTION', from);
-              }
-            })
+              },{
+                $set:{
+                  status: 'Successful',
+                  txHash: transactionHash
+                }
+              },{
+                new: true
+              }).then(updated=>{
+                if(Object.keys(socketList).indexOf(from.toUpperCase())>-1){
+                  socketList[from.toUpperCase()].emit('UPDATE_RELAVANT_TRANSACTION', from);
+                }
+              })
+            }
           }
+          
         }).catch(console.error)
       }
     })
