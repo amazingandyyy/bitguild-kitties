@@ -1,13 +1,7 @@
 import Transactions from './model';
-import web3 from './web3';
 import { socketList } from './socket';
 
-const filterwatch = web3.eth.filter({
-  address: '0x06012c8cf97BEaD5deAe237070F9587f8E7A266d',
-  topics: [
-    '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef', // Transfer
-  ] 
-})
+import web3 from './web3';
 
 function decodeData(log){
   return {
@@ -24,8 +18,15 @@ export default {
   },
   start: () => {
     console.log('\x1b[32m>>> Listening to cryptokitties...\x1b[0m');
+    const filterwatch = web3.eth.filter({
+      address: '0x06012c8cf97BEaD5deAe237070F9587f8E7A266d',
+      topics: [
+        '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef', // Transfer
+      ] 
+    })
     filterwatch.watch(function(err,log){
-      if(err)return console.error('Filter Watch Error: ',err);
+      if(err)return console.error('Filter Watch Error: ', err.message);
+      console.log('log')
       const { from, transactionHash } = decodeData(log);
       if(from!=='0x0000000000000000000000000000000000000000'){
         Transactions.findOne({ txHash: transactionHash })
@@ -44,8 +45,9 @@ export default {
               },{
                 new: true
               }).then(updated=>{
-                if(Object.keys(socketList).indexOf(from.toUpperCase())>-1){
-                  socketList[from.toUpperCase()].emit('UPDATE_RELAVANT_TRANSACTION', from);
+                if(Object.keys(socketList).indexOf(updated.from.toUpperCase())>-1){
+                  console.log(`\x1b[90m>>> Updated [Transaction] event: ${updated.transactionHash} \x1b[0m`);
+                  socketList[from.toUpperCase()].emit('UPDATE_RELAVANT_TRANSACTION', updated.from);
                 }
               })
             }
